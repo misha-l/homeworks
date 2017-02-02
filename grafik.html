@@ -1,0 +1,868 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>HTML5</title>
+
+				<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen, projection" />
+
+                <style>
+                button.accordion {
+                    background-color: #eee;
+                    color: #333;
+                    cursor: pointer;
+                    padding: 18px;
+                    width: 100%;
+                    border: none;
+                    text-align: left;
+                    outline: none;
+                    font-size: 15px;
+                    transition: 0.4s;
+                    border-top: 1px solid #ddd;
+                }
+                button.accordion b{
+                    color: #981436;
+                }
+                button.accordion:first-child {
+                   border-top: none;
+               }
+
+                button.accordion.active, button.accordion:hover {
+                    background-color: #ccc;
+                }
+
+                button.accordion:after {
+                    content: '\002B';
+                    color: #777;
+                    font-weight: bold;
+                    float: right;
+                    margin-left: 5px;
+                }
+
+                button.accordion.active:after {
+                    content: "\2212";
+                }
+
+                div.panel {
+
+                    background-color: white;
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: max-height 0.2s ease-out;
+                }
+                a.arrows{
+                 float: left; width: 4%; background: #ddd; text-align: center;
+                 line-height: 53px;
+                 margin-top: 162px;
+                 }
+                .mySlides{
+                 position: relative; float: left; width: 88%;
+                 margin-left: 1%;
+                 margin-right: 1%;
+                }
+                .accordion b{
+                float: left; width: 120px; font-weight:bold;
+
+                }
+                .panel{
+                position: relative; float: left; width: 100%;
+                }
+                .container-fluid{
+                position: relative; float: left; width: 100%; background: #f3f3f3; text-align: center;
+                }
+                .time{
+                background-color: #e8e8e8; float: left; width: 8%;
+                color: #981436; font-size: 14px;
+                overflow: hidden;
+                line-height: 36px;
+                }
+                .table-cell{
+                background-color: #f3f3f3; float: left;
+                overflow: hidden;
+                line-height: 36px;
+                }
+                .table-cell a{
+                    overflow: hidden;
+                    line-height: 36px;
+                }
+                .table-cell:nth-child(2n+3) {
+                background: #e8e8e8;
+                }
+                .tablecell-yoga{
+                width: 30%;
+                font-weight: bold;
+                color: #444444;
+                overflow: hidden;
+                }
+                .tablecell-name{
+                width: 32%;
+                overflow: hidden;
+                color: #981436; font-size: 13px; font-style: italic;
+                }
+                .tablecell-name a{
+                 color: #981436; font-size: 13px; font-style: italic;
+                }
+                .tablecell-places{
+                width: 10%;
+                overflow: hidden;
+                }
+                .tablecell-places a{
+                background: #790e24;
+                color: #fff;
+                font-style: normal;
+                padding: 1px 4px;
+                }
+                .tablecell-mail{
+                width: 8%;
+                overflow: hidden;
+                }
+                .tablecell-mail a{
+                    color: #981436; font-size: 17px; font-weight: bold;
+                }
+                .tablecell-more{
+                width: 12%;
+                overflow: hidden;
+                }
+                .tablecell-more a{
+                  color: #981436; font-size: 14px;
+                }
+                .row {
+                    font-family: Arial;
+                    font-size: 14px;
+                }
+                .row a{
+                 text-decoration: none;
+                }
+                .row div{
+
+                    border-top: 1px solid #dddddd;
+                }
+                .h2-grafic{
+                  font: 19px 'Arial';
+                  color: #444;
+                  width: 95%;
+                  margin-left: 5%;
+                }
+                @media only screen and (max-width: 768px)
+                {
+                    .time{
+                    float: left;
+                    line-height: 98px;
+                     border-bottom: 1px solid #dddddd;
+                    }
+
+                    .row div{border-top: none;}
+                    .table-cell{line-height: auto;}
+                    .tablecell-yoga{width: 92%; line-height: 30px;}
+                    .tablecell-name{width: 92%; line-height: 16px;}
+                    .tablecell-name a{ line-height: 16px;}
+                    .tablecell-places{width: 46%;  line-height: 25px; text-align: right;}
+                    .tablecell-places a{ line-height: 25px;}
+                    .tablecell-mail{width: 46%; line-height:25px;  text-align: left;}
+                    .tablecell-mail a{ line-height: 25px;  padding-left: 5%;}
+                    .tablecell-more{float: left; width: 92%; line-height: 16px; border-bottom: 1px solid #dddddd; padding-bottom: 10px;}
+                    .tablecell-more a{ line-height: 16px; }
+                    .table-cell:nth-child(2n+3) {background: #f3f3f3;}
+
+                }
+                </style>
+    </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+
+
+
+    <body>
+
+
+<h2 class="h2-grafic">Седмичен График</h2>
+
+<div class="w3-content w3-display-container">
+  <a class="arrows" onclick="plusDivs(-1)">&#10094;</a>
+
+  <div class="mySlides">
+      <button class="accordion"><b>ПОНЕДЕЛНИК</b> <span>23.01.2017</span></button>
+
+      <div class="panel">
+          <div class="container-fluid">
+
+              <div class="row">
+                  <div class="time">09:00</div>
+                  <div class="table-cell tablecell-yoga">Класическа йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Мирослава Бранкова</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">15/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+
+              <div class="row">
+                  <div class="time">10:00</div>
+                  <div class="table-cell tablecell-yoga">Йога за бременни</div>
+                  <div class="table-cell tablecell-name"><a href="#">Нина Пелова</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">2/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Анти-стрес йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Ивайло Добринов</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+
+          </div>
+      </div>
+
+      <button class="accordion"><b>ВТОРНИК</b> <span>24.01.2017</span></button>
+      <div class="panel">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="time">09:00</div>
+                  <div class="table-cell tablecell-yoga">Йога за бременни</div>
+                  <div class="table-cell tablecell-name"><a href="#">Мирослава Бранкова</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">15/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Анти-стрес йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Диди</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">2/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+
+              <div class="row">
+                  <div class="time">17:00</div>
+                  <div class="table-cell tablecell-yoga">Йога за начинаещи</div>
+                  <div class="table-cell tablecell-name"><a href="#">Мариян Иванов</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+          </div>
+      </div>
+
+      <button class="accordion"><b>СРЯДА</b> <span>25.01.2017</span></button>
+      <div class="panel">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Йога за начинаещи</div>
+                  <div class="table-cell tablecell-name"><a href="#">Яна Пеева</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Ащанга йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Любомир Николов</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Бебе Йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Яна Пеева</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Шаки Йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Мариян Иванов</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+          </div>
+      </div>
+
+      <button class="accordion"><b>ЧЕТВЪРТЪК</b> <span>26.01.2017</span></button>
+      <div class="panel">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Йога за начинаещи</div>
+                  <div class="table-cell tablecell-name"><a href="#">Мариян Иванов</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+              <div class="row">
+                  <div class="time">18:00</div>
+                  <div class="table-cell tablecell-yoga">Ащанга йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Любомир Николов</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+          </div>
+      </div>
+
+      <button class="accordion"><b>ПЕТЪК</b> <span>27.01.2017</span></button>
+      <div class="panel">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Йога за начинаещи</div>
+                  <div class="table-cell tablecell-name"><a href="#">Мариян Иванов</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Бебе йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Яна Пеева</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Йога за Беменни</div>
+                  <div class="table-cell tablecell-name"><a href="#">Дани</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+          </div>
+      </div>
+
+      <button class="accordion"><b>СЪБОТА</b> <span>28.01.2017</span></button>
+      <div class="panel">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="time">10:00</div>
+                  <div class="table-cell tablecell-yoga">Хатха Йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Мариян Иванов</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Класическа Йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Нина Пелова</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+              <div class="row">
+                  <div class="time">15:00</div>
+                  <div class="table-cell tablecell-yoga">Шивананда Йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Диди</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+              <div class="row">
+                  <div class="time">16:00</div>
+                  <div class="table-cell tablecell-yoga">Анти-стрес Йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Светлана Русева</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+          </div>
+      </div>
+
+      <button class="accordion"><b>НЕДЕЛЯ</b> <span>29.01.2017</span></button>
+      <div class="panel">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Класическа Йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Светлана Русева</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+          </div>
+      </div>
+
+
+
+
+  </div>
+  <div class="mySlides">
+
+            <button class="accordion"><b>ПОНЕДЕЛНИК</b> <span>30.01.2017</span></button>
+
+            <div class="panel">
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="time">09:00</div>
+                        <div class="table-cell tablecell-yoga">Класическа йога</div>
+                        <div class="table-cell tablecell-name"><a href="#">Мирослава Бранкова</a></div>
+                        <div class="table-cell tablecell-places"><a href="#">15/15</a></div>
+                        <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                        <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="time">10:00</div>
+                        <div class="table-cell tablecell-yoga">Йога за бременни</div>
+                        <div class="table-cell tablecell-name"><a href="#">Нина Пелова</a></div>
+                        <div class="table-cell tablecell-places"><a href="#">2/15</a></div>
+                        <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                        <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="time">11:00</div>
+                        <div class="table-cell tablecell-yoga">Анти-стрес йога</div>
+                        <div class="table-cell tablecell-name"><a href="#">Ивайло Добринов</a></div>
+                        <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                        <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                        <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <button class="accordion"><b>ВТОРНИК</b> <span>31.01.2017</span></button>
+            <div class="panel">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="time">09:00</div>
+                        <div class="table-cell tablecell-yoga">Йога за бременни</div>
+                        <div class="table-cell tablecell-name"><a href="#">Мирослава Бранкова</a></div>
+                        <div class="table-cell tablecell-places"><a href="#">15/15</a></div>
+                        <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                        <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="time">11:00</div>
+                        <div class="table-cell tablecell-yoga">Анти-стрес йога</div>
+                        <div class="table-cell tablecell-name"><a href="#">Диди</a></div>
+                        <div class="table-cell tablecell-places"><a href="#">2/15</a></div>
+                        <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                        <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="time">17:00</div>
+                        <div class="table-cell tablecell-yoga">Йога за начинаещи</div>
+                        <div class="table-cell tablecell-name"><a href="#">Мариян Иванов</a></div>
+                        <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                        <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                        <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="accordion"><b>СРЯДА</b> <span>01.02.2017</span></button>
+            <div class="panel">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="time">11:00</div>
+                        <div class="table-cell tablecell-yoga">Йога за начинаещи</div>
+                        <div class="table-cell tablecell-name"><a href="#">Яна Пеева</a></div>
+                        <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                        <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                        <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+                    </div>
+                    <div class="row">
+                        <div class="time">11:00</div>
+                        <div class="table-cell tablecell-yoga">Ащанга йога</div>
+                        <div class="table-cell tablecell-name"><a href="#">Любомир Николов</a></div>
+                        <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                        <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                        <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+                    </div>
+                    <div class="row">
+                        <div class="time">11:00</div>
+                        <div class="table-cell tablecell-yoga">Бебе Йога</div>
+                        <div class="table-cell tablecell-name"><a href="#">Яна Пеева</a></div>
+                        <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                        <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                        <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+                    </div>
+                    <div class="row">
+                        <div class="time">11:00</div>
+                        <div class="table-cell tablecell-yoga">Шаки Йога</div>
+                        <div class="table-cell tablecell-name"><a href="#">Мариян Иванов</a></div>
+                        <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                        <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                        <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="accordion"><b>ЧЕТВЪРТЪК</b> <span>02.02.2017</span></button>
+            <div class="panel">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="time">11:00</div>
+                        <div class="table-cell tablecell-yoga">Йога за начинаещи</div>
+                        <div class="table-cell tablecell-name"><a href="#">Мариян Иванов</a></div>
+                        <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                        <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                        <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+                    </div>
+                    <div class="row">
+                        <div class="time">18:00</div>
+                        <div class="table-cell tablecell-yoga">Ащанга йога</div>
+                        <div class="table-cell tablecell-name"><a href="#">Любомир Николов</a></div>
+                        <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                        <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                        <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="accordion"><b>ПЕТЪК</b> <span>03.02.2017</span></button>
+            <div class="panel">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="time">11:00</div>
+                        <div class="table-cell tablecell-yoga">Йога за начинаещи</div>
+                        <div class="table-cell tablecell-name"><a href="#">Мариян Иванов</a></div>
+                        <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                        <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                        <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+                    </div>
+                    <div class="row">
+                        <div class="time">11:00</div>
+                        <div class="table-cell tablecell-yoga">Бебе йога</div>
+                        <div class="table-cell tablecell-name"><a href="#">Яна Пеева</a></div>
+                        <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                        <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                        <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+                    </div>
+                    <div class="row">
+                        <div class="time">11:00</div>
+                        <div class="table-cell tablecell-yoga">Йога за Беменни</div>
+                        <div class="table-cell tablecell-name"><a href="#">Дани</a></div>
+                        <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                        <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                        <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="accordion"><b>СЪБОТА</b> <span>04.02.2017</span></button>
+            <div class="panel">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="time">10:00</div>
+                        <div class="table-cell tablecell-yoga">Хатха Йога</div>
+                        <div class="table-cell tablecell-name"><a href="#">Мариян Иванов</a></div>
+                        <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                        <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                        <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+                    </div>
+                    <div class="row">
+                        <div class="time">11:00</div>
+                        <div class="table-cell tablecell-yoga">Класическа Йога</div>
+                        <div class="table-cell tablecell-name"><a href="#">Нина Пелова</a></div>
+                        <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                        <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                        <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+                    </div>
+                    <div class="row">
+                        <div class="time">15:00</div>
+                        <div class="table-cell tablecell-yoga">Шивананда Йога</div>
+                        <div class="table-cell tablecell-name"><a href="#">Диди</a></div>
+                        <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                        <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                        <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+                    </div>
+                    <div class="row">
+                        <div class="time">16:00</div>
+                        <div class="table-cell tablecell-yoga">Анти-стрес Йога</div>
+                        <div class="table-cell tablecell-name"><a href="#">Светлана Русева</a></div>
+                        <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                        <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                        <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="accordion"><b>НЕДЕЛЯ</b> <span>05.02.2017</span></button>
+            <div class="panel">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="time">11:00</div>
+                        <div class="table-cell tablecell-yoga">Класическа Йога</div>
+                        <div class="table-cell tablecell-name"><a href="#">Светлана Русева</a></div>
+                        <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                        <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                        <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+                    </div>
+                </div>
+            </div>
+
+  </div>
+  <div class="mySlides">
+
+      <button class="accordion"><b>ПОНЕДЕЛНИК</b> <span>06.02.2017</span></button>
+
+      <div class="panel">
+          <div class="container-fluid">
+
+              <div class="row">
+                  <div class="time">09:00</div>
+                  <div class="table-cell tablecell-yoga">Класическа йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Мирослава Бранкова</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">15/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+
+              <div class="row">
+                  <div class="time">10:00</div>
+                  <div class="table-cell tablecell-yoga">Йога за бременни</div>
+                  <div class="table-cell tablecell-name"><a href="#">Нина Пелова</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">2/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Анти-стрес йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Ивайло Добринов</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+
+          </div>
+      </div>
+
+      <button class="accordion"><b>ВТОРНИК</b> <span>07.02.2017</span></button>
+      <div class="panel">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="time">09:00</div>
+                  <div class="table-cell tablecell-yoga">Йога за бременни</div>
+                  <div class="table-cell tablecell-name"><a href="#">Мирослава Бранкова</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">15/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Анти-стрес йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Диди</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">2/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+
+              <div class="row">
+                  <div class="time">17:00</div>
+                  <div class="table-cell tablecell-yoga">Йога за начинаещи</div>
+                  <div class="table-cell tablecell-name"><a href="#">Мариян Иванов</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+          </div>
+      </div>
+
+      <button class="accordion"><b>СРЯДА</b> <span>08.02.2017</span></button>
+      <div class="panel">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Йога за начинаещи</div>
+                  <div class="table-cell tablecell-name"><a href="#">Яна Пеева</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Ащанга йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Любомир Николов</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Бебе Йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Яна Пеева</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Шаки Йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Мариян Иванов</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+          </div>
+      </div>
+
+      <button class="accordion"><b>ЧЕТВЪРТЪК</b> <span>09.02.2017</span></button>
+      <div class="panel">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Йога за начинаещи</div>
+                  <div class="table-cell tablecell-name"><a href="#">Мариян Иванов</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+              <div class="row">
+                  <div class="time">18:00</div>
+                  <div class="table-cell tablecell-yoga">Ащанга йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Любомир Николов</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+          </div>
+      </div>
+
+      <button class="accordion"><b>ПЕТЪК</b> <span>10.02.2017</span></button>
+      <div class="panel">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Йога за начинаещи</div>
+                  <div class="table-cell tablecell-name"><a href="#">Мариян Иванов</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Бебе йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Яна Пеева</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Йога за Беменни</div>
+                  <div class="table-cell tablecell-name"><a href="#">Дани</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+          </div>
+      </div>
+
+      <button class="accordion"><b>СЪБОТА</b> <span>11.02.2017</span></button>
+      <div class="panel">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="time">10:00</div>
+                  <div class="table-cell tablecell-yoga">Хатха Йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Мариян Иванов</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Класическа Йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Нина Пелова</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+              <div class="row">
+                  <div class="time">15:00</div>
+                  <div class="table-cell tablecell-yoga">Шивананда Йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Диди</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+              <div class="row">
+                  <div class="time">16:00</div>
+                  <div class="table-cell tablecell-yoga">Анти-стрес Йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Светлана Русева</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+          </div>
+      </div>
+
+      <button class="accordion"><b>НЕДЕЛЯ</b> <span>12.02.2017</span></button>
+      <div class="panel">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="time">11:00</div>
+                  <div class="table-cell tablecell-yoga">Класическа Йога</div>
+                  <div class="table-cell tablecell-name"><a href="#">Светлана Русева</a></div>
+                  <div class="table-cell tablecell-places"><a href="#">11/15</a></div>
+                  <div class="table-cell tablecell-mail"><a href="#">&#9993;</a></div>
+                  <div class="table-cell tablecell-more"><a href="#">повече &#187;</a></div>
+              </div>
+          </div>
+      </div>
+
+  </div>
+
+
+  <a class="arrows" onclick="plusDivs(1)">&#10095;</a>
+</div>
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+}
+</script>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+        panel.style.maxHeight = null;
+    } else {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+    }
+  }
+}
+</script>
+
+
+
+
+    </body>
+</html>
